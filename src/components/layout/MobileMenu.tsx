@@ -49,12 +49,13 @@ export function MobileMenu() {
                             key={link.href}
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 + index * 0.1 }}
+                            transition={{ delay: 0.05 + index * 0.05, duration: 0.2 }}
                             className="w-full"
                         >
                             <Link
                                 href={link.href}
                                 onClick={() => setOpen(false)}
+                                prefetch={true}
                                 className={cn(
                                     "text-2xl font-medium transition-all duration-300 hover:text-primary hover:scale-105",
                                     "block py-2 text-center w-full"
@@ -68,12 +69,12 @@ export function MobileMenu() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 + navLinks.length * 0.1 + 0.1 }}
+                        transition={{ delay: 0.1 + navLinks.length * 0.05, duration: 0.3 }}
                         className="mt-8 pt-8 w-full"
                     >
-                        <Button className="w-full h-12 text-lg gap-2 shadow-lg" size="lg" asChild>
+                        <Button className="w-full h-14 text-xl gap-2 shadow-xl bg-green-600 hover:bg-green-700 animate-pulse" size="lg" asChild>
                             <a href="tel:+34631543707">
-                                <Phone className="h-5 w-5" />
+                                <Phone className="h-6 w-6" />
                                 Llamar Ahora
                             </a>
                         </Button>

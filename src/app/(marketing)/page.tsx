@@ -1,8 +1,9 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { CheckCircle2, Truck, Ruler, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Truck, Ruler, ShieldCheck, Armchair, Sofa, Hammer, BedDouble, ArrowRight } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const QuoteForm = dynamic(() => import("@/components/forms/QuoteForm").then(mod => mod.QuoteForm));
 const FloatingContact = dynamic(() => import("@/components/layout/FloatingContact").then(mod => mod.FloatingContact));
@@ -13,6 +14,47 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+
+      {/* Services Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
+            <p className="text-gray-600">Especialistas en recuperación y diseño de mobiliario tapizado.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ServiceCard
+              title="Tapizado de Sofás"
+              description="Renovamos tu sofá con las mejores telas antimanchas del mercado."
+              icon={<Sofa className="h-8 w-8" />}
+              href="/servicios/tapizado-sofas"
+              color="bg-blue-50 text-blue-600"
+            />
+            <ServiceCard
+              title="Sillones y Butacas"
+              description="Recuperamos la comodidad y estética de tus piezas favoritas."
+              icon={<Armchair className="h-8 w-8" />}
+              href="/servicios/tapizado-sillones"
+              color="bg-amber-50 text-amber-600"
+            />
+            <ServiceCard
+              title="Cabeceros"
+              description="Diseños a medida para dar personalidad a tu dormitorio."
+              icon={<BedDouble className="h-8 w-8" />}
+              href="/servicios/cabeceros-a-medida"
+              color="bg-purple-50 text-purple-600"
+            />
+            <ServiceCard
+              title="Restauración"
+              description="Trabajos artesanales en madera y estructuras antiguas."
+              icon={<Hammer className="h-8 w-8" />}
+              href="/servicios/restauracion-muebles"
+              color="bg-emerald-50 text-emerald-600"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
@@ -87,6 +129,22 @@ function Feature({ icon, title, description }: { icon: React.ReactNode, title: s
       </div>
       <h2 className="text-xl font-bold text-gray-900">{title}</h2>
       <p className="text-gray-500">{description}</p>
+    </div>
+  )
+}
+
+function ServiceCard({ title, description, icon, href, color }: { title: string, description: string, icon: React.ReactNode, href: string, color: string }) {
+  return (
+    <div className="group relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${color}`}>
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{title}</h3>
+      <p className="text-gray-500 text-sm mb-4 leading-relaxed">{description}</p>
+      <Link href={href} className="inline-flex items-center text-sm font-semibold text-gray-900 hover:text-primary transition-colors">
+        Ver detalles
+        <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+      </Link>
     </div>
   )
 }
