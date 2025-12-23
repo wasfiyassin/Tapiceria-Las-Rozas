@@ -6,6 +6,7 @@ import { Menu, Phone } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const navLinks = [
     { name: "Inicio", href: "/" },
@@ -29,32 +30,57 @@ export function MobileMenu() {
                     <span className="sr-only">Abrir menú</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                {/* VisuallyHidden title for accessibility requirement if needed, or use proper Title */}
+            <SheetContent side="right" className="w-full sm:w-[400px] flex flex-col justify-center items-center border-l-0 bg-white/95 backdrop-blur-xl">
+                {/* VisuallyHidden title for accessibility requirement */}
                 <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
-                <nav className="flex flex-col gap-4 mt-8">
-                    <div className="font-serif text-xl font-bold mb-4 text-primary">Tapicería Las Rozas</div>
-                    {navLinks.map((link) => (
-                        <Link
+
+                <nav className="flex flex-col items-center gap-6 w-full max-w-sm mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="font-serif text-2xl font-bold mb-8 text-primary/90 tracking-tight"
+                    >
+                        Tapicería Las Rozas
+                    </motion.div>
+
+                    {navLinks.map((link, index) => (
+                        <motion.div
                             key={link.href}
-                            href={link.href}
-                            onClick={() => setOpen(false)}
-                            className={cn(
-                                "text-lg font-medium transition-colors hover:text-primary",
-                                "block py-2"
-                            )}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2 + index * 0.1 }}
+                            className="w-full"
                         >
-                            {link.name}
-                        </Link>
+                            <Link
+                                href={link.href}
+                                onClick={() => setOpen(false)}
+                                className={cn(
+                                    "text-2xl font-medium transition-all duration-300 hover:text-primary hover:scale-105",
+                                    "block py-2 text-center w-full"
+                                )}
+                            >
+                                {link.name}
+                            </Link>
+                        </motion.div>
                     ))}
-                    <div className="mt-8 pt-8 border-t">
-                        <Button className="w-full gap-2" size="lg" asChild>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 + navLinks.length * 0.1 + 0.1 }}
+                        className="mt-8 pt-8 w-full"
+                    >
+                        <Button className="w-full h-12 text-lg gap-2 shadow-lg" size="lg" asChild>
                             <a href="tel:+34631543707">
-                                <Phone className="h-4 w-4" />
+                                <Phone className="h-5 w-5" />
                                 Llamar Ahora
                             </a>
                         </Button>
-                    </div>
+                        <p className="text-center text-sm text-muted-foreground mt-6 font-medium">
+                            Madrid • Las Rozas
+                        </p>
+                    </motion.div>
                 </nav>
             </SheetContent>
         </Sheet>

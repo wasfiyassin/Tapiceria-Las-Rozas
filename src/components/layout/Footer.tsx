@@ -13,8 +13,8 @@ export function Footer() {
                         Calidad, precisión y materiales de lujo para dar una segunda vida a tus piezas favoritas.
                     </p>
                     <div className="flex gap-4 pt-2">
-                        <a href="https://instagram.com" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></a>
-                        <a href="https://facebook.com" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></a>
+                        <a href="https://instagram.com" className="hover:text-white transition-colors" aria-label="Síguenos en Instagram"><Instagram className="h-5 w-5" /></a>
+                        <a href="https://facebook.com" className="hover:text-white transition-colors" aria-label="Síguenos en Facebook"><Facebook className="h-5 w-5" /></a>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@ export function Footer() {
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-400">
                 <p>&copy; {new Date().getFullYear()} Tapicería Las Rozas. Todos los derechos reservados.</p>
             </div>
         </footer>

@@ -83,7 +83,7 @@ function Feature({ icon, title, description }: { icon: React.ReactNode, title: s
       <div className="p-3 bg-primary/10 rounded-full">
         {icon}
       </div>
-      <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+      <h2 className="text-xl font-bold text-gray-900">{title}</h2>
       <p className="text-gray-500">{description}</p>
     </div>
   )
