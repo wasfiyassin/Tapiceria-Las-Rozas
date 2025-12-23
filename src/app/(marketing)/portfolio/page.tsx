@@ -59,13 +59,10 @@ export default function PortfolioPage() {
         <main className="min-h-screen bg-white">
             <Navbar />
 
-            <section className="bg-gray-900 text-white py-20 md:py-28 text-center relative overflow-hidden">
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Nuestros Proyectos</h1>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <section className="bg-gray-50 py-20 border-b">
+                <div className="container mx-auto px-4 text-center">
+                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Nuestros Proyectos</h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Una muestra de la dedicación y el detalle que ponemos en cada pieza.
                         El antes y el después de muebles con historia.
                     </p>

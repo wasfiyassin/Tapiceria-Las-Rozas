@@ -15,10 +15,10 @@ export default function ContactPage() {
             <Navbar />
 
             {/* Header */}
-            <section className="bg-primary text-primary-foreground py-16 md:py-24">
+            <section className="bg-gray-50 py-16 md:py-24 border-b">
                 <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">Hablemos de tu Proyecto</h1>
-                    <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Hablemos de tu Proyecto</h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Estamos aquí para asesorarte. Cuéntanos qué necesitas y te responderemos en menos de 24 horas.
                     </p>
                 </div>
@@ -53,8 +53,8 @@ export default function ContactPage() {
                                     <div>
                                         <div>
                                             <p className="font-semibold text-gray-900 mb-1">Email</p>
-                                            <a href="mailto:tapicerolasrozas@hotmail.com" className="text-lg text-gray-600 hover:text-primary transition-colors">
-                                                tapicerolasrozas@hotmail.com
+                                            <a href="mailto:lasrozastapicero@gmail.com" className="text-lg text-gray-600 hover:text-primary transition-colors">
+                                                lasrozastapicero@gmail.com
                                             </a>
                                         </div>
                                     </div>

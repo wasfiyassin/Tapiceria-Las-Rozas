@@ -54,9 +54,9 @@ export function Footer() {
                             <Phone className="h-4 w-4 shrink-0" />
                             +34 631 543 707
                         </a>
-                        <a href="mailto:tapicerolasrozas@hotmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
+                        <a href="mailto:lasrozastapicero@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
                             <Mail className="h-4 w-4 shrink-0" />
-                            tapicerolasrozas@hotmail.com
+                            lasrozastapicero@gmail.com
                         </a>
                         <div className="flex items-start gap-3">
                             <MapPin className="h-4 w-4 shrink-0 mt-1" />

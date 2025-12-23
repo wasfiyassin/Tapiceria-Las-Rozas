@@ -21,8 +21,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { submitQuote, FormState } from "@/lib/actions";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
@@ -34,8 +33,8 @@ const formSchema = z.object({
 });
 
 export function QuoteForm() {
-    const [isPending, startTransition] = useTransition();
-    const [state, setState] = useState<FormState>({ success: false, message: "" });
+    const [isLoading, setIsLoading] = useState(false);
+    const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -48,31 +47,53 @@ export function QuoteForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        startTransition(async () => {
-            const formData = new FormData();
-            Object.entries(values).forEach(([key, value]) => {
-                if (value) formData.append(key, value);
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true);
+        setResult(null); // Reset previous messages
+
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values),
             });
 
-            const result = await submitQuote(state, formData);
-            setState(result);
+            const data = await response.json();
 
-            if (result.success) {
+            if (response.ok) {
+                setResult({
+                    success: true,
+                    message: "¡Gracias! Hemos recibido tu solicitud correctamente. Te contactaremos en breve con tu presupuesto.",
+                });
                 form.reset();
+            } else {
+                setResult({
+                    success: false,
+                    message: data.error ? `Error: ${data.error}` : "Hubo un error al enviar el formulario. Inténtalo más tarde.",
+                });
             }
-        });
+        } catch (error) {
+            console.error(error);
+            setResult({
+                success: false,
+                message: "Error de conexión. Por favor, verifica tu internet o llámanos directamente.",
+            });
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
         <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-border">
             <h3 className="text-2xl font-serif font-bold mb-6 text-primary">Solicita Presupuesto Gratuito</h3>
 
-            {state.success ? (
-                <div className="bg-gray-900 text-white p-4 rounded-md mb-6 border border-gray-800">
-                    <p className="font-medium text-center">{state.message}</p>
+            {result && (
+                <div className={`p-4 rounded-md mb-6 border ${result.success ? 'bg-gray-900 text-white border-gray-800' : 'bg-red-50 text-red-800 border-red-100'}`}>
+                    <p className="font-medium text-center">{result.message}</p>
                 </div>
-            ) : null}
+            )}
 
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -162,9 +183,9 @@ export function QuoteForm() {
                         )}
                     />
 
-                    <Button type="submit" className="w-full" size="lg" disabled={isPending}>
-                        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                        {isPending ? "Enviando..." : "Pedir Presupuesto"}
+                    <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+                        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                        {isLoading ? "Enviando..." : "Pedir Presupuesto"}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center mt-4">
