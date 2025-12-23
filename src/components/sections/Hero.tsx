@@ -15,8 +15,8 @@ export function Hero() {
                     className="object-cover"
                     priority
                     fetchPriority="high"
-                    sizes="100vw"
-                    quality={82}
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    quality={80}
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88/1nPQAJMQNi71Hq0AAAAABJRU5ErkJggg==" // Generic dark blur
                 />

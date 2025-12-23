@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const QuoteForm = dynamic(() => import("@/components/forms/QuoteForm").then(mod => mod.QuoteForm));
-const FloatingContact = dynamic(() => import("@/components/layout/FloatingContact").then(mod => mod.FloatingContact));
+import { DynamicFloatingContact } from "@/components/layout/DynamicFloatingContact";
 
 export default function Home() {
   return (
@@ -116,7 +116,7 @@ export default function Home() {
       </section>
 
       <Footer />
-      <FloatingContact />
+      <DynamicFloatingContact />
     </main>
   );
 }

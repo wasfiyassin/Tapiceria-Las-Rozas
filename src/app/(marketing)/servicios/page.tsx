@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingContact } from "@/components/layout/FloatingContact";
+import { DynamicFloatingContact } from "@/components/layout/DynamicFloatingContact";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -137,7 +137,7 @@ export default function ServicesPage() {
             </section>
 
             <Footer />
-            <FloatingContact />
+            <DynamicFloatingContact />
         </main>
     );
 }

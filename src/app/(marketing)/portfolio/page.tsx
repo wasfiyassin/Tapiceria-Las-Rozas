@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingContact } from "@/components/layout/FloatingContact";
+import { DynamicFloatingContact } from "@/components/layout/DynamicFloatingContact";
 import Image from "next/image";
 import type { Metadata } from "next";
 
@@ -99,7 +99,7 @@ export default function PortfolioPage() {
             </section>
 
             <Footer />
-            <FloatingContact />
+            <DynamicFloatingContact />
         </main>
     );
 }
