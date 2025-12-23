@@ -3,9 +3,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
-import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const MobileMenu = dynamic(() => import("./MobileMenu").then(mod => mod.MobileMenu), {
+    ssr: false
+});
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);

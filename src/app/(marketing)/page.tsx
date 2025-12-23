@@ -1,9 +1,11 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingContact } from "@/components/layout/FloatingContact";
 import { Hero } from "@/components/sections/Hero";
-import { QuoteForm } from "@/components/forms/QuoteForm";
 import { CheckCircle2, Truck, Ruler, ShieldCheck } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const QuoteForm = dynamic(() => import("@/components/forms/QuoteForm").then(mod => mod.QuoteForm));
+const FloatingContact = dynamic(() => import("@/components/layout/FloatingContact").then(mod => mod.FloatingContact));
 
 export default function Home() {
   return (
