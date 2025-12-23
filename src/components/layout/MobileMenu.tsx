@@ -2,7 +2,7 @@
 
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, Phone } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -72,12 +72,6 @@ export function MobileMenu() {
                         transition={{ delay: 0.1 + navLinks.length * 0.05, duration: 0.3 }}
                         className="mt-8 pt-8 w-full"
                     >
-                        <Button className="w-full h-14 text-xl gap-2 shadow-xl bg-green-600 hover:bg-green-700 animate-pulse" size="lg" asChild>
-                            <a href="tel:+34631543707">
-                                <Phone className="h-6 w-6" />
-                                Llamar Ahora
-                            </a>
-                        </Button>
                         <p className="text-center text-sm text-muted-foreground mt-6 font-medium">
                             Madrid • Las Rozas
                         </p>

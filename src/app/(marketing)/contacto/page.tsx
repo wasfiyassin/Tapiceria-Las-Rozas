@@ -53,8 +53,8 @@ export default function ContactPage() {
                                     <div>
                                         <div>
                                             <p className="font-semibold text-gray-900 mb-1">Email</p>
-                                            <a href="mailto:tapicerialasrozas@hotmail.com" className="text-lg text-gray-600 hover:text-primary transition-colors">
-                                                tapicerialasrozas@hotmail.com
+                                            <a href="mailto:tapicerolasrozas@hotmail.com" className="text-lg text-gray-600 hover:text-primary transition-colors">
+                                                tapicerolasrozas@hotmail.com
                                             </a>
                                         </div>
                                     </div>

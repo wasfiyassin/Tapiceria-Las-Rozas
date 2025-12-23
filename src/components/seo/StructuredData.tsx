@@ -7,7 +7,7 @@ export function StructuredData() {
         "@id": "https://tapicerialasrozas.com",
         "url": "https://tapicerialasrozas.com",
         "telephone": "+34631543707",
-        "email": "tapicerialasrozas@hotmail.com",
+        "email": "tapicerolasrozas@hotmail.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Calle Bruselas",

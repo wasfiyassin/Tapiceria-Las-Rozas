@@ -69,8 +69,8 @@ export function QuoteForm() {
             <h3 className="text-2xl font-serif font-bold mb-6 text-primary">Solicita Presupuesto Gratuito</h3>
 
             {state.success ? (
-                <div className="bg-green-50 text-green-800 p-4 rounded-md mb-6">
-                    <p className="font-medium">{state.message}</p>
+                <div className="bg-gray-900 text-white p-4 rounded-md mb-6 border border-gray-800">
+                    <p className="font-medium text-center">{state.message}</p>
                 </div>
             ) : null}
 

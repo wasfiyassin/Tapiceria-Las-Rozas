@@ -23,6 +23,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.69.0",
+    "resend": "^6.6.0",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.2.1"
   },
@@ -38,8 +39,10 @@
     "typescript": "^5"
   },
   "browserslist": [
-    ">0.3%",
-    "not dead",
-    "not op_mini all"
+    "chrome >= 87",
+    "firefox >= 78",
+    "safari >= 14",
+    "edge >= 88",
+    "ios >= 14"
   ]
 }
