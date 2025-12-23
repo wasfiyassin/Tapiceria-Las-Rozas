@@ -21,7 +21,7 @@ export async function POST(request: Request) {
         }
 
         const data = await resend.emails.send({
-            from: 'Tapicería Las Rozas <onboarding@resend.dev>', // Usamos onboarding para asegurar que funcione sin dominio verificado
+            from: 'Tapicería Las Rozas <info@tapicerialasrozas.com>', // Dominio verificado
             to: ['lasrozastapicero@gmail.com'],
             replyTo: email, // Para responder directamente al cliente
             subject: `Nuevo Presupuesto: ${name} - ${serviceType}`,
