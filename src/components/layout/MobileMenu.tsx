@@ -54,7 +54,13 @@ export function MobileMenu() {
                         >
                             <Link
                                 href={link.href}
-                                onClick={() => setOpen(false)}
+                                onClick={(e) => {
+                                    if (link.href === "/" && window.location.pathname === "/") {
+                                        e.preventDefault();
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                    }
+                                    setOpen(false);
+                                }}
                                 prefetch={true}
                                 className={cn(
                                     "text-2xl font-medium transition-all duration-300 hover:text-primary hover:scale-105",

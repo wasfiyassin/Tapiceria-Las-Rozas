@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -13,8 +14,22 @@ const MobileMenu = dynamic(() => import("./MobileMenu").then(mod => mod.MobileMe
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
+
+    const handleLogoClick = (e: React.MouseEvent) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
 
     useEffect(() => {
+        // Scroll al inicio al cargar la página
+        window.scrollTo(0, 0);
+
+        // Inicializar estado basándose en el scroll actual
+        setIsScrolled(window.scrollY > 10);
+
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
         };
@@ -33,7 +48,11 @@ export function Navbar() {
         >
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="font-serif text-2xl font-bold text-primary tracking-tight">
+                <Link
+                    href="/"
+                    onClick={handleLogoClick}
+                    className="font-serif text-2xl font-bold text-primary tracking-tight"
+                >
                     Tapicería Las Rozas
                 </Link>
 
